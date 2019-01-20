@@ -1,0 +1,14 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+}
+
+.markers {
+  display: none;
+  background-color: blue;
+  border-radius: 50%;
+}
