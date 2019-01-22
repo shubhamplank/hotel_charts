@@ -5,6 +5,7 @@ import Bar from "./bar.jsx";
 import Map from "./map.jsx";
 import { saveAs } from "file-saver";
 import "./styles.css";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -35,8 +36,27 @@ class App extends React.Component {
     return (
       <div className="App">
         <Filter onChange={this.onChange} ratings={ratings} />
-        <Bar ratings={ratings} />
-        <Map ratings={ratings} />
+       
+        <BrowserRouter>
+          <div>
+            <ul>
+              
+                <Link to="/Bar">Bar   </Link> &nbsp;&nbsp;&nbsp;&nbsp;  
+              
+                <Link to="/Map">Map</Link>
+             
+            </ul>
+            <hr />
+            <Route
+              path="/Bar"
+              render={props => <Bar {...props} ratings={ratings} />}
+            />
+            <Route
+              path="/Map"
+              render={props => <Map {...props} ratings={ratings} />}
+            />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
